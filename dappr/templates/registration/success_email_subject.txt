@@ -1,0 +1,5 @@
+{% comment %}
+The subject of the email sent to the user after the admin approves their account
+
+:context site: current Site
+{% endcomment %}{{ site.name }}: Your account request has been approved

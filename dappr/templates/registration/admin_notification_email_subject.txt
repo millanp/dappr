@@ -1,0 +1,5 @@
+{% comment %}
+The subject of the email sent to the admin to notify them of a new user request
+
+:context site: current Site
+{% endcomment %}{{ site.name }}: New user request

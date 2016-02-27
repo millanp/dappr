@@ -1,0 +1,5 @@
+{% comment %}
+The subject of the email sent to confirm a potential user's identity
+
+:context site: current Site
+{% endcomment %}{{ site.name }}: Confirm your identity to request an account

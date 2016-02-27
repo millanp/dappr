@@ -1,0 +1,11 @@
+{% comment %}  
+The html email sent to confirm user identity
+
+:context site: current Site
+:context conf_key: one use confirmation key to be plugged into confirmation url
+{% endcomment %}
+Thank you for registering with {{ site.name }}<br>
+Please click the link below to complete the signup process.<br>
+<a href="{{ site.domain }}{% url "confirmation_view" conf_key %}">
+    {{ site.domain }}{% url "confirmation_view" conf_key %}
+</a>

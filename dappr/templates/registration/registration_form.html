@@ -1,0 +1,15 @@
+{% extends "admin/login.html" %}
+{% comment %}  
+A template to display the user registration form.
+
+:context form: registration form
+:context messages: success messages
+{% endcomment %}
+{% block content %}
+Please enter your information here. Upon submission, you will be sent an email allowing you to set your password.<br>
+<form action=""	method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Submit">
+</form>
+{% endblock %}

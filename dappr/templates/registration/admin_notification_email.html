@@ -1,0 +1,12 @@
+{% comment %}  
+The html email sent to the admin after the user confirms their identity
+
+:context site: current Site
+:context user: User instance of the potential site user
+{% endcomment %}
+A user has requested an account at your website.<br>
+Username: {{ user.username }}<br>
+Email address: {{ user.email }}<br>
+Please deal with this request as soon as possible.
+Visit the admin page yourself, or click here:
+{{ site.domain }}{% url "admin:dappr_registrationprofile_changelist" %}
