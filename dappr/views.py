@@ -42,10 +42,13 @@ class RegistrationForm(FormValidMessageMixin, edit.FormView):
     form_valid_message = "Please check your email for a link to set your password"
     
     def form_valid(self, form):
+        data = form.cleaned_data
+        del data['email1']
         user = get_user_model().objects.create_user(
-                username=form.cleaned_data['username'],
-                password='',
-                email=form.cleaned_data['email']
+            **data    
+#             username=form.cleaned_data['username'],
+#             password='',
+#             email=form.cleaned_data['email']
         )
         user.set_unusable_password()
         user.is_active = False
