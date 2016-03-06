@@ -1,2 +1,2 @@
-recursive-include templates *
-recursive-include migrations *
+recursive-include dappr/templates *
+recursive-include dappr/migrations *
