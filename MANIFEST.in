@@ -1,1 +1,1 @@
-recursive-include dappr *.html *.txt
+recursive-include dappr *.html *.txt *.py
