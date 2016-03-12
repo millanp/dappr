@@ -33,9 +33,12 @@ def approve_requests(modeladmin, request, queryset):
         request: request object sent with admin action
         queryset: queryset of objects selected
     """
+    
+    # Validate selection
     if not selection_valid(modeladmin, request, queryset): return
     
-    # Update selected registration profiles to the "approved" state
+    # Update selected registration profiles to the "approved" state 
+    # (approved=True, active=False)
     queryset.update(approved=True)
     queryset.update(active=False)
     
@@ -45,6 +48,7 @@ def approve_requests(modeladmin, request, queryset):
         profile.user.is_active = True
         profile.user.save()
         profile.send_approval_notification()
+
 approve_requests.short_description = "Approve selected account request(s)"
 
 
@@ -57,11 +61,21 @@ def reject_requests(modeladmin, request, queryset):
         request: request object sent with admin action
         queryset: queryset of objects selected
     """
+    
+    # Validate selection
     if not selection_valid(modeladmin, request, queryset): return
+    
+    # Update selected profiles to the "rejected" state 
+    # (approved=False, active=False)
     queryset.update(active=False)
+    
+    # Send email notification to selected users, 
+    # then delete both the associated User objects 
+    # and the RegistrationProfile objects themselves (automatic on User deletion)
     for profile in queryset:
-        profile.user.delete()
         profile.send_rejection_notification()
+        profile.user.delete()
+
 reject_requests.short_description = "Reject selected account request(s)"
 
 
@@ -73,4 +87,5 @@ class RegistrationAdmin(admin.ModelAdmin):
     """
     list_display = ('user', 'identity_confirmed', 'confirmation_key', 'approved')
     actions = (approve_requests, reject_requests)
+
 admin.site.register(RegistrationProfile, RegistrationAdmin)
