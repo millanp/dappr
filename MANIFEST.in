@@ -1,2 +1,1 @@
-recursive-include dappr/templates *
-recursive-include dappr/migrations *
+recursive-include dappr *.html *.txt

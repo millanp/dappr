@@ -1,15 +1,15 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(name='dappr',
-      version='0.1',
+      packages=find_packages(),
+      version='0.4',
       description='Django app for registration, with an approval step.',
       url='https://github.com/millanp/dappr',
       author='Millan Philipose',
       author_email='millanmakes@gmail.com',
       license='MIT',
-      packages=['dappr'],
       install_requires=[
           'Django>=1.8',
       ],
-      zip_safe=False
+      install_package_data=True
 )
