@@ -16,7 +16,7 @@ class RegistrationProfile(models.Model):
     # The User object associated with this profile. 
     # Only activated once account request approved.
     user = models.OneToOneField(
-        get_user_model(),
+        settings.AUTH_USER_MODEL,
         on_delete = models.CASCADE,
     )
     
