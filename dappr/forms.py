@@ -2,6 +2,21 @@ from django.forms import fields
 from django import forms
 from django.contrib.auth import get_user_model
 
+
+class PlaceholderInsteadOfLabelMixin(object):
+    """
+    A form mixin that replaces ugly text field <label>s with pretty HTML5 placeholders.
+    """
+    def __init__(self, *args, **kwargs):
+        super(PlaceholderInsteadOfLabelMixin, self).__init__(*args, **kwargs)
+        for field_name in self.fields:
+            field = self.fields.get(field_name)
+            if field:
+                if type(field.widget) in (forms.TextInput, forms.DateInput):
+                    field.widget = forms.TextInput(attrs={'placeholder': field.label})
+                    field.label = None
+
+
 class RegistrationForm(forms.Form):
     """
     A form for the first step of user registration.
@@ -16,7 +31,7 @@ class RegistrationForm(forms.Form):
     def clean(self):
         # Get entered data
         cleaned_data = super(RegistrationForm, self).clean()
-        
+
         # Check if email addresses match
         email = cleaned_data.get("email")
         email1 = cleaned_data.get("email1")
