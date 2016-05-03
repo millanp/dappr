@@ -13,11 +13,10 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
-from django.contrib import admin
-from dappr import views#, ConfirmationView  
+from django.conf.urls import url
+from dappr import views
 
 urlpatterns = [
     url(r'register', views.RegistrationForm.as_view(), name='registration_view'),
     url(r'confirm/(?P<conf_key>[0-9]+)', views.UserPasswordUpdate.as_view(), name='confirmation_view'),
-] 
+]

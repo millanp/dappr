@@ -11,6 +11,9 @@ Please enter your information here. Upon submission, you will be sent an email a
 	{% csrf_token %}
 	{{ form.as_p }}
 	<input type="submit" value="Submit">
+	<p style="margin-top: 10px">
+		<a href="{% url 'login' %}">Back to login page</a>
+	</p>
 </form>
 <a href="{% url 'login' %}">Back to login</a>
 {% endblock %}
