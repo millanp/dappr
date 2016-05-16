@@ -36,7 +36,7 @@ class UserPasswordUpdate(FormValidMessageMixin, edit.UpdateView):
         r = RegistrationProfile.objects.get(confirmation_key=self.kwargs['conf_key'])
         return r
     def get(self, *args, **kwargs):
-        if not RegistrationProfile.objects.get(confirmation_key=self.kwargs['conf_key']).exists():
+        if not RegistrationProfile.objects.filter(confirmation_key=self.kwargs['conf_key']).exists():
             return render('registration/invalid_confirmation_code.html')
         return super(UserPasswordUpdate, self).get(self, *args, **kwargs)
 class RegistrationForm(FormValidMessageMixin, edit.FormView):
