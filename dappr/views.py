@@ -37,8 +37,8 @@ class UserPasswordUpdate(FormValidMessageMixin, edit.UpdateView):
         return r
     def get(self, *args, **kwargs):
         if not RegistrationProfile.objects.get(confirmation_key=self.kwargs['conf_key']).exists():
-            raise Http404
-        super(UserPasswordUpdate, self).get(self, *args, **kwargs);
+            return render('registration/invalid_confirmation_code.html')
+        return super(UserPasswordUpdate, self).get(self, *args, **kwargs)
 class RegistrationForm(FormValidMessageMixin, edit.FormView):
     template_name = 'registration/registration_form.html'
     form_class = forms.RegistrationForm
