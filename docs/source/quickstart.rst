@@ -3,6 +3,8 @@ Quickstart
 ==========
 1. Add dappr to your urlpatterns::
 
+.. code-block:: python
+	
 	from dappr import urls
 
 	urlpatterns = [
@@ -14,5 +16,5 @@ Quickstart
 
 .. code-block:: html
 
-		...(some template)...
-		<a href="{% url 'registration_view' %}">Create an account</a>
+	...(some template)...
+	<a href="{% url 'registration_view' %}">Create an account</a>

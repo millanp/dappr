@@ -41,9 +41,10 @@
             
   <div class="section" id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic">
-<li><p class="first">Add dappr to your urlpatterns:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dappr</span> <span class="k">import</span> <span class="n">urls</span>
+<ol class="arabic simple">
+<li>Add dappr to your urlpatterns:</li>
+</ol>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dappr</span> <span class="kn">import</span> <span class="n">urls</span>
 
 <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
         <span class="o">...</span>
@@ -51,9 +52,8 @@
 <span class="p">]</span>
 </pre></div>
 </div>
-</li>
-<li><p class="first">Create a link to dappr&#8217;s registration view</p>
-</li>
+<ol class="arabic simple" start="2">
+<li>Create a link to dappr&#8217;s registration view</li>
 </ol>
 <div class="highlight-html"><div class="highlight"><pre><span></span>...(some template)...
 <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;registration_view&#39; %}&quot;</span><span class="p">&gt;</span>Create an account<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
