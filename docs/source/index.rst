@@ -11,8 +11,13 @@ Contents:
 .. toctree::
    :maxdepth: 2
    
+   why
    install
    quickstart
+   urls
+   views
+   models
+   forms
 
 
 Indices and tables
