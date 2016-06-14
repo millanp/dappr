@@ -10,6 +10,7 @@ setup(name='dappr',
       license='MIT',
       install_requires=[
           'Django>=1.8',
+          'django-braces'
       ],
       package_data={'dappr': ['templates/registration/*.html', 'templates/registration/*.txt']},
       install_package_data=True
