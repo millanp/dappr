@@ -16,9 +16,8 @@ class RegistrationProfile(models.Model):
     # The User object associated with this profile. 
     # Only activated once account request approved.
     user = models.OneToOneField(
-        get_user_model(),
-        on_delete=models.SET_NULL,
-        null=True
+        settings.AUTH_USER_MODEL,
+        on_delete = models.CASCADE,
     )
     
     # Whether or not the user has confirmed their identity through the emailed link
