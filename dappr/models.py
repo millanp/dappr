@@ -3,8 +3,7 @@ from django.conf import settings
 from django.utils.crypto import get_random_string
 from django.core.mail import mail_admins
 from django.template.loader import render_to_string
-from django.contrib.sites.models import Site
-from django.contrib.auth import get_user_model
+from django.contrib.sites.shortcuts import get_current_site
 
 class RegistrationProfile(models.Model):
     """
@@ -34,7 +33,7 @@ class RegistrationProfile(models.Model):
     # (requests are made inactive when an admin has takes action on them)
     active = models.BooleanField(default=True)
     
-    def send_user_confirmation(self):
+    def send_user_confirmation(self, request):
         """
         Called after user completes initial registration form.
         Generate a confirmation key, then
@@ -48,7 +47,7 @@ class RegistrationProfile(models.Model):
         
         # Use appropriate email templates to generate and send the email
         context = {
-            "site": Site.objects.get(pk=settings.SITE_ID),
+            "site": get_current_site(request),
             "conf_key": self.confirmation_key,
         }
         self.user.email_user(
@@ -57,7 +56,7 @@ class RegistrationProfile(models.Model):
             html_message=render_to_string("registration/confirmation_email.html", context=context),
         )
 
-    def send_admin_notification(self):
+    def send_admin_notification(self, request):
         """
         Called after user confirms identity and sets password. 
         Set identity confirmed to true, then send an email to the admin to notify
@@ -70,7 +69,7 @@ class RegistrationProfile(models.Model):
         
         # Use appropriate email templates to generate and send the email
         context = {
-           "site": Site.objects.get(pk=settings.SITE_ID),
+           "site": get_current_site(request),
            "user": self.user
         }
         mail_admins(
@@ -79,7 +78,7 @@ class RegistrationProfile(models.Model):
             html_message=render_to_string("registration/admin_notification_email.html", context=context),
         )
 
-    def send_approval_notification(self):
+    def send_approval_notification(self, request):
         """
         Called after admin approves account request.
         Send email notification to user that they can now use the website.
@@ -87,7 +86,7 @@ class RegistrationProfile(models.Model):
         
         # Use appropriate email templates to generate and send the email
         context = {
-           "site": Site.objects.get(pk=settings.SITE_ID),
+           "site": get_current_site(request),
         }
         self.user.email_user(
             render_to_string("registration/success_email_subject.txt", context=context),
@@ -95,7 +94,7 @@ class RegistrationProfile(models.Model):
             html_message=render_to_string("registration/success_email.html", context=context),           
         )
 
-    def send_rejection_notification(self):
+    def send_rejection_notification(self, request):
         """
         Called after admin rejects account request.
         Send email notification to user that their account request has been rejected.
@@ -103,7 +102,7 @@ class RegistrationProfile(models.Model):
         
         # Use appropriate email templates to generate and send the email
         context = {
-            "site": Site.objects.get(pk=settings.SITE_ID),
+            "site": get_current_site(request),
         }
         self.user.email_user(
             render_to_string("registration/rejection_email_subject.txt", context=context),

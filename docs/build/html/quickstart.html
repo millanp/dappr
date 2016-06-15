@@ -8,7 +8,7 @@
     
     <title>Quickstart &mdash; dappr 0.4.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -24,39 +24,49 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="dappr 0.4.2 documentation" href="index.html" />
-    <link rel="prev" title="Installation" href="install.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
+    <link rel="next" title="URLs used by Dappr" href="urls.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
   </head>
-  <body role="document">
-  
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="urls.html" title="URLs used by Dappr"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">dappr 0.4.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" role="main">
+          <div class="body">
             
   <div class="section" id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
 <li>Add dappr to your urlpatterns:</li>
 </ol>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dappr</span> <span class="kn">import</span> <span class="n">urls</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">dappr</span> <span class="kn">import</span> <span class="n">urls</span>
 
 <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
         <span class="o">...</span>
-        <span class="n">url</span><span class="p">(</span><span class="s1">r&#39;^registration/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">urls</span><span class="p">)),</span>
+        <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^registration/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">urls</span><span class="p">)),</span>
 <span class="p">]</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li>Create a link to dappr&#8217;s registration view</li>
 </ol>
-<div class="highlight-html"><div class="highlight"><pre><span></span>...(some template)...
-<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{% url &#39;registration_view&#39; %}&quot;</span><span class="p">&gt;</span>Create an account<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<div class="highlight-html"><div class="highlight"><pre>...(some template)...
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{% url &#39;registration_view&#39; %}&quot;</span><span class="nt">&gt;</span>Create an account<span class="nt">&lt;/a&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -65,50 +75,54 @@
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="install.html" title="previous chapter">Installation</a></li>
-  </ul></li>
-</ul>
-</div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/quickstart.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="install.html"
+                        title="previous chapter">Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="urls.html"
+                        title="next chapter">URLs used by Dappr</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/quickstart.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2016, Millan Philipose.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.4</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
-      
-      |
-      <a href="_sources/quickstart.txt"
-          rel="nofollow">Page source</a>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="urls.html" title="URLs used by Dappr"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             >previous</a> |</li>
+        <li><a href="index.html">dappr 0.4.2 documentation</a> &raquo;</li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer">
+        &copy; Copyright 2016, Millan Philipose.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
   </body>
 </html>

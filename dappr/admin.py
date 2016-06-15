@@ -21,7 +21,8 @@ def selection_valid(modeladmin, request, queryset):
     # Check whether selection contains inactive (dealt with) registration profiles
     if queryset.filter(active=False).exists():
         modeladmin.message_user(request,
-                                "One or more registration profiles are inactive (already dealt with)")
+                                "One or more registration profiles are inactive (already dealt with)",
+                                level=messages.ERROR)
         return False
     return True
 def approve_requests(modeladmin, request, queryset):
@@ -47,7 +48,7 @@ def approve_requests(modeladmin, request, queryset):
     for profile in queryset:
         profile.user.is_active = True
         profile.user.save()
-        profile.send_approval_notification()
+        profile.send_approval_notification(request)
 
 approve_requests.short_description = "Approve selected account request(s)"
 
@@ -73,7 +74,7 @@ def reject_requests(modeladmin, request, queryset):
     # then delete both the associated User objects 
     # and the RegistrationProfile objects themselves (automatic on User deletion)
     for profile in queryset:
-        profile.send_rejection_notification()
+        profile.send_rejection_notification(request)
         profile.user.delete()
 
 reject_requests.short_description = "Reject selected account request(s)"
