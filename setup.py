@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(name='dappr',
       packages=find_packages(),
-      version='0.4.6',
+      version='0.5',
       description='Django app for registration, with an approval step.',
       url='https://github.com/millanp/dappr',
       author='Millan Philipose',

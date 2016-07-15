@@ -42,6 +42,7 @@ Installation
 
 .. code-block:: python
 
+    ...
     EMAIL_HOST = 'smtp.sendgrid.net'
     # Make sure this information is not committed to a public repo!
     EMAIL_HOST_USER = 'sendgrid_username'
@@ -49,7 +50,14 @@ Installation
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
 
-6. Migrate the database::
+6. Set your ADMINS
+
+.. code-block:: python
+
+    ...
+    ADMINS = (('username', 'email'),)
+
+7. Migrate the database
 
 .. code-block:: python
 
