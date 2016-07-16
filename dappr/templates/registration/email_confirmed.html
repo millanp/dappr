@@ -1,0 +1,14 @@
+{% extends "admin/login.html" %}
+{% comment %}  
+A template to display the user registration form.
+
+:context form: registration form
+:context messages: success messages
+{% endcomment %}
+{% block content %}
+You have successfully confirmed your email address. As soon as possible,
+we will review your account request and send you an email informing us of
+our decision. No more work will be required on your part.<br>
+<strong>Remember, your account hasn't been activated yet!</strong>
+<a href="{% url 'login' %}">Login page</a>
+{% endblock %}
