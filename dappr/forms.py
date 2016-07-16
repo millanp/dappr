@@ -26,17 +26,18 @@ class RegistrationForm(forms.Form):
 
     username = fields.CharField(required=True)
     email = fields.EmailField(required=True)
-    email1 = fields.EmailField(required=True, label="Re-enter email")
+    password = fields.CharField(widget=forms.PasswordInput)
+    password1 = fields.CharField(widget=forms.PasswordInput, label="Re-enter password")
 
     def clean(self):
         # Get entered data
         cleaned_data = super(RegistrationForm, self).clean()
 
-        # Check if email addresses match
-        email = cleaned_data.get("email")
-        email1 = cleaned_data.get("email1")
-        if email and email1 and email != email1:
-            raise forms.ValidationError("Email addresses do not match")
+        # Check if passwords match
+        password = cleaned_data.get("password")
+        password1 = cleaned_data.get("password1")
+        if password and password1 and password != password1:
+            raise forms.ValidationError("Passwords do not match")
 
         # Check if username is in use
         username = cleaned_data.get("username")

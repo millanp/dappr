@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import edit
+from django.views.generic import base
 from dappr import forms
 from braces.views import FormValidMessageMixin
 from dappr.models import RegistrationProfile
@@ -9,33 +10,9 @@ from django.http.response import Http404
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 
-# Create your views here.
-# class Confirmation
-class UserPasswordUpdate(SuccessMessageMixin, edit.UpdateView):
-    model = get_user_model()
-    template_name = 'registration/user_password_set_form.html'
-    form_class = SetPasswordForm
-    success_message = ("We will review your account request as soon as possible. "
-                       "Expect an email in a couple days informing you of "
-                       "our decision")
-    success_url = reverse_lazy("registration_view")
 
-    def get_form_kwargs(self):
-        kwgs = edit.UpdateView.get_form_kwargs(self)
-        kwgs['user'] = self.object
-        # TODO: Find out why you need to delete this
-        del kwgs['instance']
-        return kwgs
-
-    def form_valid(self, form):
-        if self.get_registration_profile().identity_confirmed:
-            raise Http404
-        response = SuccessMessageMixin.form_valid(self, form)
-        self.get_registration_profile().send_admin_notification(self.request)
-        return response
-
-    def get_object(self, queryset=None):
-        return self.get_registration_profile().user
+class EmailConfirmView(base.TemplateView):
+    template_name = 'registration/email_confirmed.html'
 
     def get_registration_profile(self):
         r = RegistrationProfile.objects.get(confirmation_key=self.kwargs['conf_key'])
@@ -44,24 +21,20 @@ class UserPasswordUpdate(SuccessMessageMixin, edit.UpdateView):
     def get(self, *args, **kwargs):
         if self.get_registration_profile().identity_confirmed:
             return render(self.request, 'registration/invalid_confirmation_code.html')
-        return super(UserPasswordUpdate, self).get(self, *args, **kwargs)
+        self.get_registration_profile().send_admin_notification(self.request)
+        return super(EmailConfirmView, self).get(self, *args, **kwargs)
 
 
 class RegistrationForm(FormValidMessageMixin, edit.FormView):
     template_name = 'registration/registration_form.html'
     form_class = forms.RegistrationForm
     success_url = "#"# reverse('login')
-    form_valid_message = "Please check your email for a link to set your password"
-    
+    form_valid_message = "Please check your email to confirm your address"
+
     def form_valid(self, form):
         data = form.cleaned_data
-        del data['email1']
-        user = get_user_model().objects.create_user(
-            **data    
-#             username=form.cleaned_data['username'],
-#             password='',
-#             email=form.cleaned_data['email']
-        )
+        del data['password1']
+        user = get_user_model().objects.create_user(**data)
         user.set_unusable_password()
         user.is_active = False
         user.save()
