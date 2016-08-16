@@ -2,25 +2,16 @@
 URLs used by Dappr
 ==================
 
-1. Install the package::
+Registration URL
+----------------
 
-.. code-block:: python
+.. method:: url(r'register', views.RegistrationForm.as_view(), name='registration_view')
+	
+	Routes to the view that displays and handles the registration form
 
-	pip install dappr
+Email confirmation URL
+----------------------
 
-2. Add it to your INSTALLED_APPS::
-
-.. code-block:: python
-
-	INSTALLED_APPS = [
-		...
-		'django.contrib.messages',
-		'django.contrib.staticfiles',
-		'dappr',
-	]
-
-3. Migrate the database::
-
-.. code-block:: python
-
-	python manage.py migrate
+.. method:: url2(r'confirm/(?P<conf_key>[0-9]+)', views.EmailConfirmView.as_view(), name='confirmation_view')
+	
+	Using the provided confirmation key, routes to the view that sets the user's identity confirmation status to confirmed, and displays a success message.

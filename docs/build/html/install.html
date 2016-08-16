@@ -42,7 +42,8 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic simple">
+<blockquote>
+<div><ol class="arabic simple">
 <li>Install the package</li>
 </ol>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">dappr</span>
@@ -97,12 +98,18 @@
 <span class="n">ADMINS</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">),)</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="7">
+<p>7. Test your email setup
+If you are using <code class="code docutils literal"><span class="pre">Django&gt;=1.9</span></code>, you can use this handy dandy command.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">sendtestemail</span> <span class="o">--</span><span class="n">admins</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
 <li>Migrate the database</li>
 </ol>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span>
 </pre></div>
 </div>
+</div></blockquote>
 </div>
 
 

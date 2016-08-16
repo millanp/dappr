@@ -18,3 +18,5 @@ Quickstart
 
 	...(some template)...
 	<a href="{% url 'registration_view' %}">Create an account</a>
+
+3. Enjoy the world of registration goodness that is now only one click away.

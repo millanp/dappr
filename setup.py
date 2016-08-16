@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(name='dappr',
       packages=find_packages(),
-      version='0.5',
+      version='0.6',
       description='Django app for registration, with an approval step.',
       url='https://github.com/millanp/dappr',
       author='Millan Philipose',
@@ -14,4 +14,4 @@ setup(name='dappr',
       ],
       package_data={'dappr': ['templates/registration/*.html', 'templates/registration/*.txt']},
       install_package_data=True
-)
+      )
