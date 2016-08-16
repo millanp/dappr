@@ -12,6 +12,6 @@ Registration URL
 Email confirmation URL
 ----------------------
 
-.. method:: url2(r'confirm/(?P<conf_key>[0-9]+)', views.EmailConfirmView.as_view(), name='confirmation_view')
+.. method:: url(r'confirm/(?P<conf_key>[0-9]+)', views.EmailConfirmView.as_view(), name='confirmation_view')
 	
 	Using the provided confirmation key, routes to the view that sets the user's identity confirmation status to confirmed, and displays a success message.
