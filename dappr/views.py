@@ -28,7 +28,7 @@ class EmailConfirmView(base.TemplateView):
 class RegistrationForm(SuccessMessageMixin, edit.FormView):
     template_name = 'registration/registration_form.html'
     form_class = forms.RegistrationForm
-    success_url = "#"# reverse('login')
+    success_url = "#"
     success_message = "Please check your email to confirm your address"
 
     def form_valid(self, form):

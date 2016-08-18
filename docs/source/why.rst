@@ -44,14 +44,17 @@ Not only this, but the admin approving the accounts, the one that supposedly can
 
 Here is :code:`dappr`'s approach to user registration:
 
-	#. User fills out registration form, providing all necessary details except password
+	#. User fills out registration form, providing all necessary details including password. They are told to check their email for a confirmation link.
 
-	#. User is sent an email allowing them to enter their desired password
-
-	#. User sets password
+	#. User clicks link in email, confirming email address.
 
 	#. Admin is sent an email notifying them of a new account request
 
 	#. Admin approves/rejects the account request, either activating or deleting the user's account.
 	
 Simply by reordering the steps of user registration, the two security risks are eliminated. Not only this, but registration is made easier for both the user and the admin: the user only has to do one chunk of work all at once, and the admin will never have to wait for a user to set their password after they have approved their account.
+
+No "*_complete" templates
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+One kind of annoying thing I noticed while using Django is that a lot of the time, you need to provide two templates to display any form: one with the form itself, and one with the success message. In dappr, the success message is provided as a django message to the original template. 
