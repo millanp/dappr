@@ -16,8 +16,10 @@ Contents:
    quickstart
    urls
    views
+   templates
    models
    forms
+   
 
 
 Indices and tables

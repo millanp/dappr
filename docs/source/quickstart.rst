@@ -20,4 +20,7 @@ Quickstart
 	...(some template)...
 	<a href="{% url 'registration_view' %}">Create an account</a>
 
-3. Enjoy the world of registration goodness that is now only one click away.
+3. That's it! Everything from the link click onwards will be taken care of by sensible defaults.
+
+.. note::
+	To customize the registration process, subclass and modify one of the :doc:`provided views <views>`

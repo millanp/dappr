@@ -2,6 +2,7 @@
 Views
 =====
 
+.. _registrationview:
 .. class:: registration.views.RegistrationView
     
     Subclass of `FormView <https://docs.djangoproject.com/en/dev/ref/class-based-views/generic-editing/#formview>`_.
@@ -32,11 +33,11 @@ Views
         Default: ``dappr.forms.RegistrationForm``
 
         The form class to be used in the registration template.
-        Must be a subclass of 'django.forms.Form'.
+        Must be a subclass of ``django.forms.Form``.
 
     .. attribute:: success_url
 
-        Default: ``'#'.``
+        Default: ``'#'``
 
         The URL to redirect the user after a successful registration.
         Note that this must be a true URL, not the name of a URL pattern.
@@ -66,6 +67,7 @@ Views
 
         Called after initial user registration takes place.
 
+.. _emailconfirmview:
 .. class:: EmailConfirmView
     
     Subclass of `TemplateView <https://docs.djangoproject.com/en/1.9/ref/class-based-views/base/#templateview>`_

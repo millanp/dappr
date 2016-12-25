@@ -54,7 +54,10 @@ Here is :code:`dappr`'s approach to user registration:
 	
 Simply by reordering the steps of user registration, the two security risks are eliminated. Not only this, but registration is made easier for both the user and the admin: the user only has to do one chunk of work all at once, and the admin will never have to wait for a user to set their password after they have approved their account.
 
-No "*_complete" templates
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Limited templates
+~~~~~~~~~~~~~~~~~
 
-One kind of annoying thing I noticed while using Django is that a lot of the time, you need to provide two templates to display any form: one with the form itself, and one with the success message. In dappr, the success message is provided as a django message to the original template. 
+``dappr`` was designed to make your template-making life a bit easier. Unlike most Django apps involving forms, we do not require two templates to be designed for every form, one for the form itself and one for the success message. Instead, in ``dappr``, the success message is provided as a django message to the original template. Also, ``dappr``'s streamlined workflow eliminates one email, the `registration notification <http://django-inspectional-registration.readthedocs.io/en/latest/about_registration_templates.html#registration-email>`_, along with all of its templates.
+
+.. note::
+	To learn more about ``dappr``'s templates, :doc:`check this out. <templates>`

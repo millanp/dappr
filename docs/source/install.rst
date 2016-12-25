@@ -57,8 +57,8 @@ Installation
         ...
         ADMINS = (('username', 'email'),)
 
-    7. Test your email setup
-    If you are using :code:`Django>=1.9`, you can use this handy dandy command.
+    7. Test your email setup.
+    If you are using :code:`Django>=1.9`, you can use this handy command.
 
     .. code-block:: python
         
