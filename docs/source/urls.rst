@@ -2,8 +2,17 @@
 URLs used by Dappr
 ==================
 
+
 Registration URL
 ----------------
+
++----------------------------------+--------------------------------+-----------------------+
+| Route                            | View                           | Name                  |
++==================================+================================+=======================+
+| `'register'`                     | `dappr.views.RegistrationForm` | `'registration_view'` |
++----------------------------------+--------------------------------+-----------------------+
+| `'confirm/(?P<conf_key>[0-9]+)'` | `dappr.views.EmailConfirmView` | `'confirmation_view'` |
++----------------------------------+--------------------------------+-----------------------+
 
 .. method:: url(r'register', views.RegistrationForm.as_view(), name='registration_view')
 	

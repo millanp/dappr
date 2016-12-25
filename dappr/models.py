@@ -33,7 +33,9 @@ class RegistrationProfile(models.Model):
     # (requests are made inactive when an admin has takes action on them)
     active = models.BooleanField(default=True)
     
-    def send_user_confirmation(self, request):
+
+    f
+    def send_user_confirmation(self, request: int):
         """
         Called after user completes initial registration form.
         Generate a confirmation key, then
