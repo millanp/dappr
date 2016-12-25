@@ -20,10 +20,9 @@ class RegistrationProfile(models.Model):
     )
     
     # Whether or not the user has confirmed their identity through the emailed link
-    # to the password set form
     identity_confirmed = models.BooleanField(default=False)
     
-    # Key sent with password set email to user in order to match them with their profile
+    # Key sent with activation email to user in order to match them with their profile
     confirmation_key = models.CharField(max_length=20, null=True, blank=True)
     
     # Whether or not this account request has been approved by an administrator
@@ -34,7 +33,7 @@ class RegistrationProfile(models.Model):
     active = models.BooleanField(default=True)
     
 
-    f
+    
     def send_user_confirmation(self, request: int):
         """
         Called after user completes initial registration form.
