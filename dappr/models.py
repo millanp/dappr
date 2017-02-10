@@ -34,7 +34,7 @@ class RegistrationProfile(models.Model):
     
 
     
-    def send_user_confirmation(self, request: int):
+    def send_user_confirmation(self, request):
         """
         Called after user completes initial registration form.
         Generate a confirmation key, then
