@@ -40,7 +40,6 @@ class RegistrationForm(SuccessMessageMixin, edit.FormView):
         data = form.cleaned_data
         del data['password1']
         user = get_user_model().objects.create_user(**data)
-        user.set_unusable_password()
         user.is_active = False
         user.save()
         reg_profile = RegistrationProfile.objects.create(user=user)
