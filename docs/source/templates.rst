@@ -10,6 +10,9 @@ Email Templates
 -----------------
 Override these files to define your own custom HTML content to be sent in the notification emails.
 
+.. note::
+  For more information on overriding templates, visit the `Django docs <https://docs.djangoproject.com/en/1.11/howto/overriding-templates/>`_
+
 Confirmation email
 ~~~~~~~~~~~~~~~~~~
 The message that allows the user to confirm their email address.

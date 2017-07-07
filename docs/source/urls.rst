@@ -1,6 +1,6 @@
-==================
-URLs used by Dappr
-==================
+==========
+URL routes
+==========
 
 
 .. _registrationurl:
