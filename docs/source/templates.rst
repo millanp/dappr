@@ -12,7 +12,9 @@ Override these files to define your own custom HTML content to be sent in the no
 
 Confirmation email
 ~~~~~~~~~~~~~~~~~~
-The message that allows the user to confirm their email address. |br|
+The message that allows the user to confirm their email address.
+
+**Email body template**
 
 .. raw:: html
 
@@ -42,4 +44,30 @@ The message that allows the user to confirm their email address. |br|
           </td>
         </tr>
       </tbody>
-    </table> 
+    </table>
+
+**Email subject template**
+
+.. raw:: html
+
+    <table border="1" class="docutils">
+      <thead>
+        <tr>
+          <th class="head">Filename</th>
+          <th class="head">Context</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code docutils literal">'registration/confirmation_email_subject.txt'</code></td>
+          <td>
+            <table class="docutils no-margin">
+              <tr>
+                <td><b><code class="code docutils literal">site</code></b></td>
+                <td>The current instance of <a href="https://docs.djangoproject.com/en/1.11/ref/contrib/sites/#django.contrib.sites.models.Site">Site</a> providing details about your website</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
