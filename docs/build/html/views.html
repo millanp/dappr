@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Views &mdash; dappr 0.4.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="dappr 0.4.2 documentation" href="index.html"/>
+        <link rel="next" title="Templates" href="templates.html"/>
+        <link rel="prev" title="URLs used by Dappr" href="urls.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> dappr
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="why.html">Why use Dappr?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="urls.html">URLs used by Dappr</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="templates.html">Templates</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">dappr</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Views</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/views.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="views">
+<h1>Views<a class="headerlink" href="#views" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="registrationview"></span><dl class="class">
+<dt id="registration.views.RegistrationView">
+<em class="property">class </em><code class="descclassname">registration.views.</code><code class="descname">RegistrationView</code><a class="headerlink" href="#registration.views.RegistrationView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subclass of <a class="reference external" href="https://docs.djangoproject.com/en/dev/ref/class-based-views/generic-editing/#formview">FormView</a>.
+Uses <a class="reference external" href="https://docs.djangoproject.com/en/1.9/ref/contrib/messages/#django.contrib.messages.views.SuccessMessageMixin">SuccessMessageMixin</a> to push success messages.</p>
+<p><code class="docutils literal"><span class="pre">RegistrationView</span></code> handles initial user registration, in which the user enters all of their desired account information (username, password, etc.) It both displays the form and handles form submissions.</p>
+<p>To customize this view, override the following attributes and methods:</p>
+<dl class="attribute">
+<dt id="registration.views.RegistrationView.template_name">
+<code class="descname">template_name</code><a class="headerlink" href="#registration.views.RegistrationView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">'registration/registration_form.html'</span></code></p>
+<p>The template used to display the user registration form.</p>
+<p>Context passed to template:</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">form</span></code>: Instance of <code class="docutils literal"><span class="pre">RegistrationView.form_class</span></code>
+(which by default is <code class="docutils literal"><span class="pre">dappr.forms.RegistrationForm</span></code>)</p>
+<p><code class="docutils literal"><span class="pre">messages</span></code>: List of messages to be displayed. This will include
+the success message given upon submission of the form.
+For more information on Django&#8217;s messaging system, click
+<a class="reference external" href="https://docs.djangoproject.com/en/1.10/ref/contrib/messages/">here</a>.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="registration.views.RegistrationView.form_class">
+<code class="descname">form_class</code><a class="headerlink" href="#registration.views.RegistrationView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">dappr.forms.RegistrationForm</span></code></p>
+<p>The form class to be used in the registration template.
+Must be a subclass of <code class="docutils literal"><span class="pre">django.forms.Form</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="registration.views.RegistrationView.success_url">
+<code class="descname">success_url</code><a class="headerlink" href="#registration.views.RegistrationView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">'#'</span></code></p>
+<p>The URL to redirect the user after a successful registration.
+Note that this must be a true URL, not the name of a URL pattern.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="registration.views.RegistrationView.success_message">
+<code class="descname">success_message</code><a class="headerlink" href="#registration.views.RegistrationView.success_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">'Please</span> <span class="pre">check</span> <span class="pre">your</span> <span class="pre">email</span> <span class="pre">to</span> <span class="pre">confirm</span> <span class="pre">your</span> <span class="pre">address'</span></code></p>
+<p>The message to be displayed upon successful form submission.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="registration.views.RegistrationView.get_form_class">
+<code class="descname">get_form_class</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#registration.views.RegistrationView.get_form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to determine the form class on a request-by-request
+basis. Must return a descendent of <code class="docutils literal"><span class="pre">django.forms.Form</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="registration.views.RegistrationView.get_success_url">
+<code class="descname">get_success_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#registration.views.RegistrationView.get_success_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this method to determine the success url on a request-by-request
+basis. Must return a valid URL string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="registration.views.RegistrationView.pre_registration">
+<code class="descname">pre_registration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#registration.views.RegistrationView.pre_registration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called before initial user registration takes place.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="registration.views.RegistrationView.post_registration">
+<code class="descname">post_registration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#registration.views.RegistrationView.post_registration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called after initial user registration takes place.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="emailconfirmview"></span><dl class="class">
+<dt id="EmailConfirmView">
+<em class="property">class </em><code class="descname">EmailConfirmView</code><a class="headerlink" href="#EmailConfirmView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subclass of <a class="reference external" href="https://docs.djangoproject.com/en/1.9/ref/class-based-views/base/#templateview">TemplateView</a></p>
+<p><code class="docutils literal"><span class="pre">EmailConfirmView</span></code> handles GET requests sent by email confirmation links. When one is received with a valid confirmation code, the corresponding <code class="docutils literal"><span class="pre">RegistrationProfile.identity_confirmed</span></code> is set to <code class="docutils literal"><span class="pre">True</span></code>, and the site admins are notified via email that someone has requested an account.</p>
+<dl class="attribute">
+<dt id="EmailConfirmView.template_name">
+<code class="descname">template_name</code><a class="headerlink" href="#EmailConfirmView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default: <code class="docutils literal"><span class="pre">'registration/email_confirmed.html'</span></code></p>
+<p>The template used to display the email confirmation success message.</p>
+<p>No extra context is passed to this template.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="EmailConfirmView.pre_confirmation">
+<code class="descname">pre_confirmation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#EmailConfirmView.pre_confirmation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called before the account status is changed and the admins are notified.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="EmailConfirmView.post_confirmation">
+<code class="descname">post_confirmation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#EmailConfirmView.post_confirmation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called after the account status is changed and the admins are notified.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="templates.html" class="btn btn-neutral float-right" title="Templates" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="urls.html" class="btn btn-neutral" title="URLs used by Dappr" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Millan Philipose.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.4.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
