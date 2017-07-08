@@ -6,7 +6,7 @@ A template to display the user registration form.
 :context messages: success messages
 {% endcomment %}
 {% block content %}
-Please enter your information here. Upon submission, you will be sent an email allowing you to set your password.<br>
+Please enter your information here. Upon submission, you will be sent an email allowing you to confirm your identity.<br>
 <form action=""	method="post">
 	{% csrf_token %}
 	{{ form.as_p }}

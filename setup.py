@@ -12,6 +12,7 @@ setup(name='dappr',
           'Django>=1.8',
           'django-braces'
       ],
-      package_data={'dappr': ['templates/registration/*.html', 'templates/registration/*.txt']},
+      package_data={
+          'dappr': ['templates/registration/*.html', 'templates/registration/*.txt']},
       install_package_data=True
       )

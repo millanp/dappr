@@ -20,8 +20,8 @@ class PlaceholderInsteadOfLabelMixin(object):
 class RegistrationForm(forms.Form):
     """
     A form for the first step of user registration.
-    User enters their desired username, along with their email address
-    for identity confirmation.
+    User enters their desired username, email address, and desired password
+    then receives a confirmation email.
     """
 
     username = fields.CharField(required=True)
